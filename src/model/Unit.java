@@ -83,7 +83,7 @@ public class Unit {
 	      }
 			  
 		  	// Prepare the html table to be displayed
-			  output = "<table border='1'><tr><th>UnitId</th><th>AccountNO</th>"+"<th>User Name</th>" +
+			  output = "<table border='1'><tr><th>AccountNO</th>"+"<th>User Name</th>" +
 					  "<th>Usage Unit</th>" + "<th>Usage Month</th>" + 
 					  "<th>Amount</th>" +
 					  "<th>Update</th><th>Remove</th></tr>";
@@ -102,19 +102,19 @@ public class Unit {
 				String Month = rs.getString("Month");
 				String Amount = Double.toString(rs.getDouble("Amount"));
 				// Add into the html table
-				output += "<tr><td>" + UnitID + "</td>";
-				output += "<td>" + AccountNo + "</td>";
+				
+				output += "<tr><td>" + AccountNo + "</td>";
 				output += "<td>" + CusName + "</td>";
 				output += "<td>" + Unit + "</td>";
 				output += "<td>" + Month + "</td>";
 				output += "<td>" + Amount + "</td>";
 				// buttons
-				output += "<td><input name='btnUpdate' type='submit' value='Update' class='btn btn-secondary' data-id='" + UnitID + "'></td>" + "<td>"
-				+ "<form method='post' action='unit.jsp'>" + "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger''"
-						+ " "+ "data-itemid='" + UnitID + "'>"
-				
-				+ "</form></td></tr>";
-		  }
+				output += "<td><input name='btnUpdate' type='button' value='Update' "
+						 + "class='btnUpdate btn btn-secondary' data-id='" + UnitID + "'></td>"
+						 + "<td><input name='btnRemove' type='button' value='Remove' "
+						 + "class='btnRemove btn btn-danger' data-id='" + UnitID + "'></td></tr>";
+						 } 
+		  
 				con.close();
 				// Complete the html table
 				output += "</table>";

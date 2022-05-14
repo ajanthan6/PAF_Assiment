@@ -19,7 +19,7 @@ $(document).on("click", "#btnSave", function(event)
  $("#alertError").text("");
  $("#alertError").hide();
 // Form validation-------------------
-var status = validatePaymentForm();
+var status = validateUnitForm();
 if (status != true)
  {
  $("#alertError").text(status);
@@ -37,7 +37,7 @@ var type = ($("#hidIDSave").val() == "") ? "POST" : "PUT";
  complete : function(response, status)
  {
   location.reload(true);
- onEmployeeSaveComplete(response.responseText, status);
+ onUnitSaveComplete(response.responseText, status);
 
  }
  }); 
@@ -45,7 +45,7 @@ var type = ($("#hidIDSave").val() == "") ? "POST" : "PUT";
 // UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event)
 {
-$("#hidIDSave").val($(this).data("ID"));
+$("#hidIDSave").val($(this).data("UnitID"));
  $("#AccountNo").val($(this).closest("tr").find('td:eq(0)').text());
  $("#CusName").val($(this).closest("tr").find('td:eq(1)').text());
  $("#Unit").val($(this).closest("tr").find('td:eq(2)').text());
@@ -60,20 +60,20 @@ $(document).on("click", ".btnRemove", function(event)
  {
  url : "UnitAPI",
  type : "DELETE",
- data : "ID=" + $(this).data("id"),
+ data : "UnitID=" + $(this).data("id"),
  dataType : "text",
  complete : function(response, status)
  {
 
   location.reload(true);
- onPaymentDeleteComplete(response.responseText, status);
+ onUnitDeleteComplete(response.responseText, status);
 
  }
  });
 });
 
 // CLIENT-MODEL================================================================
-function validatePaymentForm()
+function validateUnitForm()
 {
 // account number
 if ($("#AccountNo").val().trim() == "")
@@ -93,7 +93,7 @@ if ($("#Unit").val().trim() == "")
  // payment Month------------------------
 if ($("#Month").val().trim() == "")
  {
- return "Insert payment Date.";
+ return "Insert Month.";
  }
  
 
@@ -108,14 +108,13 @@ if (!$.isNumeric(tmpAmt))
  {
  return "Insert a numerical value for  amount.";
  }
-// convert to decimal price
-//$("#Amount").val(parseDouble(tmpAmt).toFixed(2));
+
 
 
 return true;
 }
 
-function onPaymentSaveComplete(response, status)
+function onUnitSaveComplete(response, status)
 {
 if (status == "success")
  {
@@ -145,7 +144,7 @@ if (status == "success")
  $("#formEmployee")[0].reset();
 }
 
-function onPaymentDeleteComplete(response, status)
+function onUnitDeleteComplete(response, status)
 {
 if (status == "success")
  {
