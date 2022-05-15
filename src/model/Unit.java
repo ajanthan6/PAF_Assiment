@@ -83,7 +83,7 @@ public class Unit {
 	      }
 			  
 		  	// Prepare the html table to be displayed
-			  output = "<table border='1'><tr><th>AccountNO</th>"+"<th>User Name</th>" +
+			  output = "<table id='unit' ><tr><th>AccountNO</th>"+"<th>User Name</th>" +
 					  "<th>Usage Unit</th>" + "<th>Usage Month</th>" + 
 					  "<th>Amount</th>" +
 					  "<th>Update</th><th>Remove</th></tr>";

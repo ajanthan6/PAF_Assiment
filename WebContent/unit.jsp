@@ -43,6 +43,7 @@ session.setAttribute("statusMsg", stsMsg);
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="Views/bootstrap.min.css">
+<link rel="stylesheet" href="Views/unit.css">
 
 <script src="Components/jquery-3.2.1.min.js"></script>
 <script src="Components/Unit.js"></script>
@@ -50,6 +51,8 @@ session.setAttribute("statusMsg", stsMsg);
 </head>
 <body>
 <h1>Power Unit Management</h1>
+
+<div>
 
 <form id="formUnit" name="formUnit" method="post" action="unit.jsp">
 Account Number:
@@ -73,6 +76,7 @@ Account Number:
 <input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
 <input type="hidden" id="hidIDSave" name="hidIDSave" value="">
 </form>
+</div>
 <div id="alertSuccess" class="alert alert-success"></div>
 <div id="alertError" class="alert alert-danger"></div>
 
